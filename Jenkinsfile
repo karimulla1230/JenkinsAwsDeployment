@@ -9,11 +9,13 @@ pipeline {
     stages {
         stage('Build') {
          steps {
-            // build stage
-            }
+            echo 'Inside Build'
+         }
         }
         stage('Test') {
-           // test stage
+            steps{
+               'Inside Test'
+            }
         }
         stage('Publish') {
             steps {
