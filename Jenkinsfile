@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps{
-               'Inside Test'
+             echo  'Inside Test'
             }
         }
         stage('Publish') {
