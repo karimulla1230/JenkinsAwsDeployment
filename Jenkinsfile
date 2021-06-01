@@ -1,17 +1,23 @@
-node {
-      
-       stage('SCM Checkout') {
-       
-         
-         git 'https://github.com/karimulla1230/JenkinsAwsDeployment'
-       
-       
-       }
-       
-       stage ('compile-package'){
-        
-         sh 'mvn package'
-       
-       }
- 
+pipeline {
+     agent { label 'java8' }
+
+     environment {
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+    }      
+
+    stages {
+        stage('Build') {
+            // build stage
+        }
+        stage('Test') {
+           // test stage
+        }
+        stage('Publish') {
+            steps {
+                sh './mvnw package'
+                // bat '.\mvnw package'
+            }
+        }
+    }
 }
