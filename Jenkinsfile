@@ -1,5 +1,5 @@
 pipeline {
-     agent { label 'java8' }
+     agent any
 
      environment {
         AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
