@@ -12,7 +12,7 @@ pipeline {
               
               steps {
                   
-                  echo 'Build Completed'
+                  echo 'mvn clean install'
               }
 
           }
