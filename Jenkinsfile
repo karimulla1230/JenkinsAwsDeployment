@@ -12,7 +12,7 @@ pipeline {
               
               steps {
                   
-                  sh 'mvn clean install'
+                  sh 'mvn install'
               }
 
           }
@@ -25,7 +25,15 @@ pipeline {
               }
 
                 }
+			stage ('Deploy') {
+                    
+              steps {
+                  
+                  echo 'Started running the eurekaclient jar'
+                  sh 'java -jar ./target/eurekaclient-0.0.1-SNAPSHOT.jar'
+              }
 
+                }
 
       }
 
