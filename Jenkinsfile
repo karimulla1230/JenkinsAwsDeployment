@@ -12,7 +12,7 @@ pipeline {
               
               steps {
                   
-                  sh 'Build Completed'
+                  echo 'Build Completed'
               }
 
           }
