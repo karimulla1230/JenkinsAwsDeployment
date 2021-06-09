@@ -11,29 +11,38 @@ pipeline {
           stage ('Build'){
               
               steps {
-                  
                   sh 'mvn install'
               }
-
           }
           
           stage ('Test') {
                     
               steps {
                   
-                  echo 'Tests Executed'
+                  sh 'mvn test'
               }
 
                 }
-			stage ('Deploy') {
+			stage ('Build Docker Image') {
                     
               steps {
                   
-                  echo 'Started running the eurekaclient jar'
-                  sh 'java -jar ./target/eurekaclient-0.0.1-SNAPSHOT.jar'
+                  sh 'docker build -t karimulla1230/jenkins-aws-deployment .'
               }
 
                 }
+                
+            stage ('Push Docker Image') {
+                environment {
+                DOCKER_HUB_LOGIN = credentials('docker-hub')
+            }
+              steps {
+                  sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
+                  sh 'docker push karimulla1230/jenkins-aws-deployment'
+                  echo 'Pushed the docker image successfully'
+              }
+
+                }	
 
       }
 
