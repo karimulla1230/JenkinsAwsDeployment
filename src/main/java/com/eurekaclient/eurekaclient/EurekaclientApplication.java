@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @SpringBootApplication
-@EnableEurekaClient
 public class EurekaclientApplication {
 
 	public static void main(String[] args) {
