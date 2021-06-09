@@ -27,7 +27,7 @@ pipeline {
                     
               steps {
                   
-                  sh 'sudo docker build -t karimulla1230/jenkins-aws-deployment .'
+                  sh 'docker build -t karimulla1230/jenkins-aws-deployment .'
               }
 
                 }
@@ -38,7 +38,7 @@ pipeline {
             }
               steps {
                   sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                  sh 'sudo docker push karimulla1230/jenkins-aws-deployment'
+                  sh 'docker push karimulla1230/jenkins-aws-deployment'
                   echo 'Pushed the docker image successfully'
               }
 
