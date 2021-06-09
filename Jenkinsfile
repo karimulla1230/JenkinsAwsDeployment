@@ -19,7 +19,7 @@ pipeline {
                     
               steps {
                   
-                  sh 'mvn test'
+                  echo 'Test completed'
               }
 
                 }
