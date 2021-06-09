@@ -47,7 +47,7 @@ pipeline {
                      
             stage ('Running Docker Image In AWS EC2 Instance') {
               steps {
-                  sh'docker run -p 80:8080 -d karimulla1230/jenkins-aws-deployment'
+                  sh'docker run -p 80:8080  karimulla1230/jenkins-aws-deployment'
                   echo 'Running the docker image in ec2 instance successfully'
               }
 
