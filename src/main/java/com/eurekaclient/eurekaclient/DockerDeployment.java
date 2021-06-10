@@ -27,7 +27,7 @@ public class DockerDeployment {
 		List<Employee> employeeLst = new ArrayList<Employee>();
 		employeeLst.add(employee);
 		
-		return  ResponseEntity.ok("New user added in Jenkins : ===> " + employeeLst);
+		return  ResponseEntity.ok("New user added in Jenkins : ===> " + employeeLst.get(0).getId() + " " + employeeLst.get(0).getName());
 		
 	}
 
