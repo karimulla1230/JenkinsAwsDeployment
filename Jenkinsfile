@@ -27,7 +27,7 @@ pipeline {
                     
               steps {
                   
-                  sh 'docker build -t karimulla1230/jenkins-aws-deployment .'
+                  sh 'docker build -t karimulla1230/docker-deployment .'
               }
 
                 }
