@@ -38,7 +38,7 @@ pipeline {
             }
               steps {
                   sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                  sh 'docker push karimulla1230/jenkins-aws-deployment'
+                  sh 'docker push karimulla1230/docker-deployment'
                   echo 'Pushed the docker image successfully'
               }
 
@@ -47,7 +47,7 @@ pipeline {
                      
             stage ('Running Docker Image In AWS EC2 Instance') {
               steps {
-                  sh'docker run -p 80:8080  karimulla1230/jenkins-aws-deployment'
+                  sh'docker run -d -p 8080:8080  karimulla1230/docker-deployment'
                   echo 'Running the docker image in ec2 instance successfully'
               }
 
